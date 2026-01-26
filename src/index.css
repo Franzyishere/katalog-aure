@@ -1,0 +1,162 @@
+/* =========================
+   BRAND THEME
+========================= */
+:root {
+  --pink: #e45695;
+  --green: #708238;
+  --cream: #fff8e7;
+}
+
+/* =========================
+   GLOBAL STYLE
+========================= */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--cream);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #333;
+}
+
+/* =========================
+   LINK
+========================= */
+a {
+  text-decoration: none;
+}
+
+/* =========================
+   BRAND COLORS
+========================= */
+.text-brand-pink {
+  color: var(--pink);
+}
+
+.bg-brand-pink {
+  background-color: var(--pink);
+  color: white;
+}
+
+.bg-brand-green {
+  background-color: var(--green);
+  color: white;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn-brand {
+  background-color: var(--pink);
+  color: white;
+  border: none;
+}
+
+.btn-brand:hover {
+  background-color: #cf4a87;
+  color: white;
+}
+
+/* =========================
+   BUTTON POP UP RULES
+========================= */
+
+.btn-brand-popup {
+  background: linear-gradient(
+    135deg,
+    var(--pink),
+    #f07fb0
+  );
+  color: white;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(228, 86, 149, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-popup:hover {
+  background: linear-gradient(
+    135deg,
+    #cf4a87,
+    var(--pink)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(228, 86, 149, 0.45);
+}
+
+.btn-brand-popup:active {
+  transform: scale(0.97);
+}
+
+.btn-brand-popup:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(228, 86, 149, 0.25);
+}
+
+/* =========================
+   RAMADHAN BADGE
+========================= */
+.ramadhan-badge {
+  background-color: var(--green);
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* =========================
+   RAMADHAN FADE ANIMATION
+========================= */
+
+/* Overlay fade */
+.ramadhan-fade-overlay {
+  animation: ramadhanFadeBg 0.6s ease forwards;
+}
+
+/* Modal fade + slide lembut */
+.ramadhan-fade-modal {
+  animation: ramadhanFadeUp 0.7s ease forwards;
+}
+
+/* Keyframes */
+@keyframes ramadhanFadeBg {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+}
+
+@keyframes ramadhanFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Decorative crescent */
+.ramadhan-icon {
+  font-size: 28px;
+  color: var(--green);
+  animation: moonGlow 2s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
