@@ -20,6 +20,147 @@ body {
 }
 
 /* =========================
+   ISLAMIC SOFT BACKGROUND
+========================= */
+body {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle at top left, rgba(112, 130, 56, 0.08), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(228, 86, 149, 0.08), transparent 40%),
+    url("/patterns/islamic-pattern.svg");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: 400px 400px, 400px 400px, 180px;
+  background-position: top left, bottom right, center;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+.product-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Tag Ramadhan */
+.ramadhan-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--green);
+  color: white;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Body */
+.product-body {
+  padding: 14px;
+  text-align: center;
+}
+
+.product-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.product-category {
+  font-size: 11px;
+  color: #777;
+}
+
+.product-price {
+  margin: 8px 0;
+  font-weight: 700;
+  color: var(--pink);
+}
+
+/* Button */
+.btn-outline-brand {
+  border: 1.5px solid var(--pink);
+  color: var(--pink);
+  font-size: 13px;
+  border-radius: 12px;
+}
+
+.btn-outline-brand:hover {
+  background-color: var(--pink);
+  color: white;
+}
+
+/* =========================
+   DETAIL PAGE
+========================= */
+.detail-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.detail-image {
+  position: relative;
+}
+
+.detail-image img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+.detail-body {
+  padding: 24px;
+}
+
+.detail-price {
+  color: var(--pink);
+  font-weight: 700;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: white;
+  border-radius: 14px;
+  font-weight: 600;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #1ebe5d, #25D366);
+  color: white;
+}
+
+
+/* =========================
    LINK
 ========================= */
 a {
@@ -111,6 +252,11 @@ a {
    RAMADHAN FADE ANIMATION
 ========================= */
 
+.card-body {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+}
+
 /* Overlay fade */
 .ramadhan-fade-overlay {
   animation: ramadhanFadeBg 0.6s ease forwards;
@@ -160,3 +306,155 @@ a {
     opacity: 0.6;
   }
 }
+
+/* Fade out modal */
+.ramadhan-fade-out {
+  animation: ramadhanFadeOut 0.5s ease forwards;
+}
+
+@keyframes ramadhanFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* =========================
+   RAMADHAN BANNER
+========================= */
+.ramadhan-banner {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(112, 130, 56, 0.9),
+      rgba(228, 86, 149, 0.85)
+    ),
+    url("/patterns/islamic-pattern.svg");
+  background-size: cover, 200px;
+  background-position: center;
+  color: white;
+  padding: 28px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  animation: ramadhanFadeUp 0.8s ease;
+}
+
+.ramadhan-banner h4 {
+  font-weight: 700;
+  margin: 10px 0 6px;
+}
+
+.ramadhan-banner p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* Badge kecil */
+.ramadhan-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================
+   RAMADHAN SLIDER
+========================= */
+.ramadhan-slider {
+  position: relative;
+  height: 160px;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(112, 130, 56, 0.9),
+      rgba(228, 86, 149, 0.9)
+    ),
+    url("/patterns/islamic-pattern.svg");
+  background-size: cover, 200px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Slide */
+.ramadhan-slide {
+  position: absolute;
+  inset: 0;
+  padding: 32px 24px;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ramadhan-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Text */
+.ramadhan-slide h4 {
+  font-weight: 800;
+  margin: 10px 0 6px;
+}
+
+.ramadhan-slide p {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* Badge */
+.ramadhan-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+/* =========================
+   RAMADHAN SLIDER DOTS
+========================= */
+.ramadhan-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.ramadhan-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ramadhan-dots .dot.active {
+  background-color: white;
+  width: 18px;
+  border-radius: 10px;
+}
+
+/* Swipe smooth feel */
+.ramadhan-slider {
+  touch-action: pan-y;
+  user-select: none;
+}
+
+

@@ -1,19 +1,86 @@
 import { useEffect, useState } from "react";
 import foods from "../data/food.js";
 import FoodCard from "../components/FoodCard.jsx";
+import { useRef } from "react";
 import React from "react";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [showModal, setShowModal] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      // swipe kiri
+      setActiveBanner((prev) => (prev + 1) % banners.length);
+    }
+
+    if (touchEndX.current - touchStartX.current > 50) {
+      // swipe kanan
+      setActiveBanner((prev) =>
+        prev === 0 ? banners.length - 1 : prev - 1
+      );
+    }
+  };
+
+const handleTouchMove = (e) => {
+  touchEndX.current = e.changedTouches[0].screenX;
+};
+
+  // ======================
+  // 🌙 BANNER SLIDER DATA
+  // ======================
+  const banners = [
+    {
+      badge: "🌙 Ramadhan Edition",
+      title: "Open Order Lebaran 2026",
+      desc: "Hampers & Kue Lebaran Homemade • Stock Terbatas",
+    },
+    {
+      badge: "🛍️ Easy Order",
+      title: "Pesan Mudah via WhatsApp",
+      desc: "Klik produk favorit & order langsung tanpa ribet",
+    },
+    {
+      badge: "⏳ Limited Stock",
+      title: "Kuota Produksi Terbatas",
+      desc: "Pastikan order sebelum H-4 Idul Fitri",
+    },
+  ];
+
+  const [activeBanner, setActiveBanner] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveBanner((prev) => (prev + 1) % banners.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // ======================
+  // MODAL RULES
+  // ======================
   useEffect(() => {
     setShowModal(true);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+  }, [showModal]);
+
   const handleAgree = () => {
-    setShowModal(false);
+    setClosing(true);
+    setTimeout(() => {
+      setShowModal(false);
+      setClosing(false);
+    }, 500);
   };
 
   const filteredFoods = foods.filter(food => {
@@ -25,6 +92,38 @@ export default function Home() {
   return (
     <div className="container my-4">
 
+      {/* 🌙 RAMADHAN SLIDER */}
+      <div
+        className="ramadhan-slider mb-4"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {banners.map((banner, index) => (
+          <div
+            key={index}
+            className={`ramadhan-slide ${
+              index === activeBanner ? "active" : ""
+            }`}
+          >
+            <span className="ramadhan-badge">{banner.badge}</span>
+            <h4>{banner.title}</h4>
+            <p>{banner.desc}</p>
+          </div>
+        ))}
+
+        {/* ● ○ ○ INDICATOR DOTS */}
+        <div className="ramadhan-dots">
+          {banners.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === activeBanner ? "active" : ""}`}
+              onClick={() => setActiveBanner(index)}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* GRID PRODUK */}
       <div className="row">
         {filteredFoods.map(food => (
@@ -35,9 +134,11 @@ export default function Home() {
       {/* MODAL SYARAT & KETENTUAN */}
       {showModal && (
         <div
-            className="modal fade show ramadhan-fade-overlay"
-            style={{ display: "block" }}
-          >
+          className={`modal fade show ramadhan-fade-overlay ${
+            closing ? "ramadhan-fade-out" : ""
+          }`}
+          style={{ display: "block" }}
+        >
           <div className="modal-dialog modal-dialog-centered modal-lg ramadhan-fade-modal">
             <div className="modal-content">
 
@@ -96,17 +197,19 @@ export default function Home() {
                     <li>Biaya pengiriman akan diinformasikan setelah alamat tujuan dikonfirmasi.</li>
                   </ul>
                 </div>
-              </div>
+               </div>
+
               <p className="text-center small text-muted mt-3">
                 Terima kasih telah mempercayakan momen spesial Anda bersama  
                 <strong> Aure Gifts & Hampers </strong> 🤍
               </p>
+
               <div className="modal-footer">
                 <button
                   className="btn btn-brand-popup w-100"
                   onClick={handleAgree}
                 >
-                  Saya Setuju & Lanjutkan
+                  🌙 Saya Setuju & Lanjutkan
                 </button>
               </div>
 
