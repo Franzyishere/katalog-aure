@@ -1,38 +1,32 @@
-import React from "react";
+import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="mt-5" style={{ backgroundColor: "#fdf3df" }}>
-        <div className="container py-4">
-            <div className="row">
+    <footer className="footer-brand">
+      <div className="container">
 
-            <div className="col-md-4 mb-3">
-                <div className="d-flex align-items-center gap-2 mb-2">
-                <img src="/icons/logo-aure.png" width="50" />
-                <h6 className="fw-bold mb-0">Aure Gifts & Hampers</h6>
-                </div>
-                <p className="small text-muted">
-                Hampers dan kue lebaran untuk berbagi kebahagiaan di hari yang fitri 🤍
-                </p>
-            </div>
-
-        <div className="col-md-4 mb-3">
-            <h6 className="fw-bold">Hubungi Kami</h6>
-            <div className="d-flex align-items-center gap-2">
-            <img src="/icons/whatsapp.svg" width="18" />
-            <small>WhatsApp Order</small>
-            </div>
+        {/* TOP */}
+        <div className="footer-top">
+          <h5>Aure Gifts & Hampers</h5>
+          <p>
+            Hampers & Kue Lebaran Homemade <br />
+            Premium • Fresh • Limited Stock
+          </p>
         </div>
 
-        <div className="col-md-4 mb-3">
-            <small className="text-muted">
-            © {new Date().getFullYear()} Aure Gifts & Hampers  
-            <br />Ramadhan & Lebaran Edition
-            </small>
+        {/* SOCIAL */}
+        <div className="footer-social">
+          <a href="https://wa.me/6285604782201" target="_blank">📱 WhatsApp</a>
+          <a href="https://instagram.com/" target="_blank">📸 Instagram</a>
+          <a href="https://tiktok.com/" target="_blank">🎵 TikTok</a>
         </div>
 
+        {/* BOTTOM */}
+        <div className="footer-bottom">
+          © {new Date().getFullYear()} Aure Gifts & Hampers • Ramadhan Edition 🌙
         </div>
-    </div>
+
+      </div>
     </footer>
   );
 }

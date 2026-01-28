@@ -1,0 +1,150 @@
+/* =========================
+   RAMADHAN MODAL OVERLAY
+========================= */
+
+.ramadhan-fade-overlay {
+  background: rgba(255, 182, 213, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+/* =========================
+   MODAL CONTAINER
+========================= */
+
+.ramadhan-fade-modal .modal-content {
+  border-radius: 22px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(228, 86, 149, 0.35);
+  animation: modalFadeUp 0.6s ease;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.modal-header.bg-brand-green {
+  background: linear-gradient(
+    135deg,
+    var(--pink-main),
+    var(--pink-dark)
+  ) !important;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.ramadhan-icon {
+  font-size: 20px;
+}
+
+/* =========================
+   BODY CONTENT
+========================= */
+
+.modal-body {
+  padding: 22px 26px;
+  background: #fffafc;
+}
+
+.modal-body h6 {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.text-brand-pink {
+  color: var(--pink-dark);
+}
+
+/* List */
+.modal-body ul {
+  padding-left: 18px;
+  margin-bottom: 12px;
+}
+
+.modal-body li {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+/* Footer note */
+.modal-body + p {
+  font-size: 12px;
+  color: #888;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-brand-popup {
+  background: linear-gradient(
+    135deg,
+    var(--pink-main),
+    var(--pink-dark)
+  );
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(228, 86, 149, 0.4);
+  transition: 0.3s ease;
+}
+
+.btn-brand-popup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(228, 86, 149, 0.55);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes modalFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fade Out */
+.ramadhan-fade-out {
+  animation: modalFadeOut 0.5s ease forwards;
+}
+
+@keyframes modalFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .modal-body {
+    padding: 18px 18px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-body li {
+    font-size: 12.5px;
+  }
+}

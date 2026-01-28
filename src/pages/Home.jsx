@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import foods from "../data/food.js";
 import FoodCard from "../components/FoodCard.jsx";
 import { useRef } from "react";
+import "./Home.css";
+import "./ModalRamadhan.css";
 import React from "react";
-import HeroRamadhan from "../components/HeroRamadhan.jsx";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -186,7 +187,6 @@ const handleTouchMove = (e) => {
           </div>
         </div>
       )}
-
     </div>
   );
 }

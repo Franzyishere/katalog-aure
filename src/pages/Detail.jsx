@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import foods from "../data/food.js";
+import "./Detail.css";
 
 export default function Detail() {
   const { id } = useParams();

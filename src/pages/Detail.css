@@ -1,0 +1,31 @@
+.detail-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.detail-image img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+.detail-body {
+  padding: 24px;
+}
+
+.detail-price {
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: white;
+  border-radius: 14px;
+  padding: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

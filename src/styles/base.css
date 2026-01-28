@@ -1,0 +1,44 @@
+/* =========================
+   BRAND THEME
+========================= */
+:root {
+  --pink-light: #f6b3d1;
+  --pink-main: #e45695;
+  --pink-dark: #cf4a87;
+
+  --text-dark: #4a4a4a;
+  --text-soft: #777;
+
+  --bg-soft: #fff5fa;
+
+  --shadow-soft: 0 12px 28px rgba(228, 86, 149, 0.25);
+}
+
+/* =========================
+   GLOBAL STYLE
+========================= */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: var(--text-dark);
+
+  background-color: var(--bg-soft);
+  background-image:
+    radial-gradient(circle at top left, rgba(228, 86, 149, 0.08), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(246, 179, 209, 0.12), transparent 40%),
+    url("/patterns/islamic-pattern.svg");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: 400px 400px, 400px 400px, 180px;
+  background-position: top left, bottom right, center;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* BRAND UTILS */
+.text-brand-pink { color: var(--pink); }
+.bg-brand-pink { background: var(--pink); color: white; }
+.bg-brand-green { background: var(--green); color: white; }

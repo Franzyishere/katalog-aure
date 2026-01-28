@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./FoodCard.css";
 
 export default function FoodCard({ food }) {
   return (

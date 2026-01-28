@@ -1,0 +1,22 @@
+.ramadhan-banner {
+  padding: 24px 20px;
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(112,130,56,0.9),
+      rgba(228,86,149,0.85)
+    ),
+    url("/patterns/islamic-pattern.svg");
+  color: white;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.ramadhan-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}

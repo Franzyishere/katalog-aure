@@ -1,0 +1,139 @@
+/* =========================
+   HERO RAMADHAN (PINK) — EXTRA SLIM
+========================= */
+
+.ramadhan-hero {
+  position: relative;
+  min-height: 220px; /* ⬅️ dipendekin lagi */
+  border-radius: 20px;
+  margin-bottom: 24px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(135deg, var(--pink-light), var(--pink-main)),
+    url("/patterns/islamic-pattern.png");
+  background-size: cover, 180px;
+  background-blend-mode: overlay;
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255,255,255,0.3),
+    transparent 60%
+  );
+}
+
+/* Content */
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+
+  padding: 36px 10px; /* ⬅️ kiri-kanan dipersempit */
+  color: white;
+}
+
+
+.hero-badge {
+  background: rgba(255,255,255,0.35);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-size: 24px; /* ⬅️ lebih ringkas */
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.hero-title span {
+  color: #fff2a8;
+}
+
+.hero-subtitle {
+  font-size: 12px;
+  opacity: 0.95;
+  margin-bottom: 16px;
+}
+
+/* Button */
+.hero-btn {
+  background: linear-gradient(135deg, var(--pink-main), var(--pink-dark));
+  color: white;
+  padding: 9px 22px;
+  border-radius: 32px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(228, 86, 149, 0.4);
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(228, 86, 149, 0.55);
+}
+
+/* Ornament (lebih kecil & subtle) */
+.lantern {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.75;
+  animation: float 4s ease-in-out infinite;
+}
+
+.lantern-left {
+  left: 14px;
+  bottom: 14px;
+}
+
+.lantern-right {
+  right: 14px;
+  top: 36px;
+  animation-delay: 1s;
+}
+
+.moon {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .ramadhan-hero {
+    min-height: 190px; /* ⬅️ slim di HP */
+    border-radius: 16px;
+  }
+
+  .hero-title {
+    font-size: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 11px;
+  }
+
+  .lantern {
+    font-size: 20px;
+  }
+
+  .moon {
+    font-size: 16px;
+  }
+}

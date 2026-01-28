@@ -1,3 +1,5 @@
+import "./HeroRamadhan.css";
+
 export default function HeroRamadhan() {
   return (
     <section className="ramadhan-hero">

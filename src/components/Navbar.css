@@ -1,0 +1,114 @@
+/* =========================
+   NAVBAR AURE
+========================= */
+
+.navbar-aure {
+  background: linear-gradient(
+    135deg,
+    var(--pink-light),
+    var(--pink-main)
+  );
+  padding: 14px 0;
+  box-shadow: 0 6px 20px rgba(228, 86, 149, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Container */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-link {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: 0.3s ease;
+}
+
+/* Hover underline soft */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: white;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 14px;
+  }
+
+  .nav-logo {
+    font-size: 17px;
+  }
+
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-menu {
+    gap: 14px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+}

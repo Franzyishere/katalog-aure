@@ -1,0 +1,60 @@
+.footer-brand {
+  margin-top: 80px;
+  padding: 50px 0 24px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink-main),
+      var(--pink-dark)
+    ),
+    url("/patterns/islamic-pattern.svg");
+  background-size: cover, 200px;
+  background-blend-mode: overlay;
+  color: white;
+}
+
+/* TOP */
+.footer-top {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.footer-top h5 {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.footer-top p {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* SOCIAL */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.footer-social a {
+  background: rgba(255,255,255,0.25);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: white;
+  color: var(--pink-main);
+  transform: translateY(-2px);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.85;
+}
