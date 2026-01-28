@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="islamic" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L40 20 L20 40 L0 20 Z" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"></path>
+    </pattern>
+  </defs>
+  <rect width="120" height="120" fill="url(#islamic)"></rect>
+</svg>

@@ -48,7 +48,7 @@ Mohon info ketersediaannya ya 😊`
           </p>
 
           <a
-            href={`https://wa.me/6281359735691?text=${waMessage}`}
+            href={`https://wa.me/6285604782201?text=${waMessage}`}
             target="_blank"
             className="btn btn-whatsapp w-100 mt-4"
           >

@@ -37,28 +37,29 @@ body {
    PRODUCT CARD
 ========================= */
 .product-card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-  transition: all 0.35s ease;
+  background: #fff8e7;
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 6px 14px rgba(228, 86, 149, 0.12);
+  transition: all 0.25s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(228, 86, 149, 0.22);
 }
 
 .product-image {
   position: relative;
+  border-radius: 12px;
   overflow: hidden;
+  height: 120px;
 }
 
 .product-image img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
 }
 
 .product-card:hover img {
@@ -68,49 +69,57 @@ body {
 /* Tag Ramadhan */
 .ramadhan-tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--green);
-  color: white;
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 20px;
+  top: 6px;
+  left: 6px;
+  background: rgba(112, 130, 56, 0.9);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 600;
 }
 
 /* Body */
 .product-body {
-  padding: 14px;
+  padding: 6px 4px 2px;
   text-align: center;
 }
 
+/* TITLE */
 .product-title {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.product-category {
-  font-size: 11px;
-  color: #777;
-}
-
-.product-price {
-  margin: 8px 0;
-  font-weight: 700;
-  color: var(--pink);
-}
-
-/* Button */
-.btn-outline-brand {
-  border: 1.5px solid var(--pink);
-  color: var(--pink);
   font-size: 13px;
-  border-radius: 12px;
+  font-weight: 600;
+  margin: 6px 0 2px;
+  color: #4a4a4a;
+  line-height: 1.3;
+}
+
+/* CATEGORY */
+.product-category {
+  font-size: 10px;
+  color: #9a9a9a;
+}
+
+/* PRICE */
+.product-price {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #708238;
+}
+
+/* BUTTON */
+.btn-outline-brand {
+  font-size: 11px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #e45695;
+  color: #e45695;
 }
 
 .btn-outline-brand:hover {
-  background-color: var(--pink);
-  color: white;
+  background: #e45695;
+  color: #fff;
 }
 
 /* =========================
@@ -456,5 +465,154 @@ a {
   touch-action: pan-y;
   user-select: none;
 }
+
+/* =========================
+   HERO RAMADHAN
+========================= */
+.ramadhan-hero {
+  position: relative;
+  min-height: 320px;          /* 🔽 dari 420 */
+  border-radius: 24px;        /* 🔽 */
+  margin-bottom: 32px;
+  background:
+    linear-gradient(135deg, #0f4d45, #1f7a6f),
+    url("/islamic-pattern.svg");
+  background-size: cover, 180px; /* 🔽 */
+  background-blend-mode: overlay;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Overlay soft */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255,255,255,0.15),
+    transparent 60%
+  );
+}
+
+/* CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+  animation: fadeUp 1s ease;
+}
+
+.hero-badge {
+  background: rgba(255,255,255,0.2);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero-title span {
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  opacity: 0.95;
+  margin-bottom: 26px;
+}
+
+/* BUTTON */
+.hero-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--pink), #f07fb0);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(228,86,149,0.4);
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(228,86,149,0.55);
+}
+
+/* =========================
+   ORNAMENT RAMADHAN
+========================= */
+.lantern {
+  position: absolute;
+  font-size: 44px;
+  opacity: 0.9;
+  animation: float 4s ease-in-out infinite;
+}
+
+.lantern-left {
+  left: 40px;
+  bottom: 40px;
+}
+
+.lantern-right {
+  right: 40px;
+  top: 60px;
+  animation-delay: 1s;
+}
+
+.moon {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  .lantern {
+    font-size: 34px;
+  }
+}
+
 
 

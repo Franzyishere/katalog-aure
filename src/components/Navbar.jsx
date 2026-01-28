@@ -27,7 +27,7 @@ export default function Navbar() {
             <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
                 <a
-                    href="https://wa.me/6281359735691"
+                    href="https://wa.me/6285604782201"
                     className="btn btn-brand d-flex align-items-center gap-2"
                 >
                     <img src="/icons/whatsapp.svg" width="45" />

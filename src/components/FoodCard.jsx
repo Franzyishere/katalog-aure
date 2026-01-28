@@ -17,13 +17,13 @@ export default function FoodCard({ food }) {
         <div className="product-body">
           <h6 className="product-title">{food.name}</h6>
 
-          <span className="product-category">
-            {food.category}
-          </span>
-
           <div className="product-price">
             Rp {food.price.toLocaleString()}
           </div>
+
+          {/* <span className="product-category">
+            {food.category}
+          </span> */}
 
           <Link
             to={`/detail/${food.id}`}

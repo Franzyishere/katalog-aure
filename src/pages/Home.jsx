@@ -3,6 +3,7 @@ import foods from "../data/food.js";
 import FoodCard from "../components/FoodCard.jsx";
 import { useRef } from "react";
 import React from "react";
+import HeroRamadhan from "../components/HeroRamadhan.jsx";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -91,38 +92,6 @@ const handleTouchMove = (e) => {
 
   return (
     <div className="container my-4">
-
-      {/* 🌙 RAMADHAN SLIDER */}
-      <div
-        className="ramadhan-slider mb-4"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {banners.map((banner, index) => (
-          <div
-            key={index}
-            className={`ramadhan-slide ${
-              index === activeBanner ? "active" : ""
-            }`}
-          >
-            <span className="ramadhan-badge">{banner.badge}</span>
-            <h4>{banner.title}</h4>
-            <p>{banner.desc}</p>
-          </div>
-        ))}
-
-        {/* ● ○ ○ INDICATOR DOTS */}
-        <div className="ramadhan-dots">
-          {banners.map((_, index) => (
-            <span
-              key={index}
-              className={`dot ${index === activeBanner ? "active" : ""}`}
-              onClick={() => setActiveBanner(index)}
-            />
-          ))}
-        </div>
-      </div>
 
       {/* GRID PRODUK */}
       <div className="row">
