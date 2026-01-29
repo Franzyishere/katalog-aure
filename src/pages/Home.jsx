@@ -93,13 +93,20 @@ const handleTouchMove = (e) => {
 
   return (
     <div className="container my-4">
+      {/* SECTION PEMISAH */}
+      <section className="section-divider">
+        <h3>🍪 Produk Lebaran Pilihan</h3>
+        <p>Favorit pelanggan untuk momen spesial</p>
+      </section>
 
       {/* GRID PRODUK */}
-      <div className="row">
-        {filteredFoods.map(food => (
-          <FoodCard key={food.id} food={food} />
-        ))}
-      </div>
+      <section className="container product-section">
+        <div className="row">
+          {foods.map((food) => (
+            <FoodCard key={food.id} food={food} />
+          ))}
+        </div>
+      </section>
 
       {/* MODAL SYARAT & KETENTUAN */}
       {showModal && (

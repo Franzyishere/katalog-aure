@@ -4,32 +4,22 @@
 
 .ramadhan-hero {
   position: relative;
+  width: 88%;
+  margin: 0 auto;
   min-height: 220px; /* ⬅️ dipendekin lagi */
   border-radius: 20px;
+  margin-top: 24px;
   margin-bottom: 24px;
   overflow: hidden;
 
-  background:
-    linear-gradient(135deg, var(--pink-light), var(--pink-main)),
-    url("/patterns/islamic-pattern.png");
-  background-size: cover, 180px;
+  background-color: rgb(166, 97, 109);
+  background-image: url("/patterns/islamic-pattern.png");
+  background-size: 180px;
   background-blend-mode: overlay;
 
   box-shadow: var(--shadow-soft);
 }
 
-/* Overlay */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at top right,
-    rgba(255,255,255,0.3),
-    transparent 60%
-  );
-}
-
-/* Content */
 /* Content */
 .hero-content {
   position: relative;
@@ -68,6 +58,7 @@
 
 /* Button */
 .hero-btn {
+  text-decoration: none;
   background: linear-gradient(135deg, var(--pink-main), var(--pink-dark));
   color: white;
   padding: 9px 22px;

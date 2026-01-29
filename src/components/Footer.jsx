@@ -1,3 +1,4 @@
+import { FaWhatsapp, FaInstagram, FaTiktok } from "react-icons/fa";
 import "./Footer.css";
 
 export default function Footer() {
@@ -16,9 +17,29 @@ export default function Footer() {
 
         {/* SOCIAL */}
         <div className="footer-social">
-          <a href="https://wa.me/6285604782201" target="_blank">📱 WhatsApp</a>
-          <a href="https://instagram.com/" target="_blank">📸 Instagram</a>
-          <a href="https://tiktok.com/" target="_blank">🎵 TikTok</a>
+          <a
+            href="https://wa.me/6285604782201"
+            target="_blank"
+            className="social-link wa"
+          >
+            <FaWhatsapp />
+          </a>
+
+          <a
+            href="https://instagram.com/@aure.gift"
+            target="_blank"
+            className="social-link ig"
+          >
+            <FaInstagram />
+          </a>
+
+          <a
+            href="https://tiktok.com/auree.gift"
+            target="_blank"
+            className="social-link tt"
+          >
+            <FaTiktok />
+          </a>
         </div>
 
         {/* BOTTOM */}

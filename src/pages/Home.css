@@ -1,22 +1,46 @@
-.ramadhan-banner {
-  padding: 24px 20px;
-  border-radius: 20px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(112,130,56,0.9),
-      rgba(228,86,149,0.85)
-    ),
-    url("/patterns/islamic-pattern.svg");
+/* =========================
+   SECTION DIVIDER
+========================= */
+
+.section-divider {
+  margin: 50px auto 30px;
+  margin-left: 0;
+  width: 350px;
+  padding: 10px 20px;
+  text-align: left;
+
+  background: linear-gradient(
+    135deg,
+    var(--pink-light),
+    var(--pink-main)
+  );
+
+  border-radius: 24px;
   color: white;
-  text-align: center;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 30px rgba(228, 86, 149, 0.35);
 }
 
-.ramadhan-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.25);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+.section-divider h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.section-divider p {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-divider h3 {
+    font-size: 18px;
+  }
+}
+/* =========================
+   PRODUCT SECTION
+========================= */
+
+.product-section {
+  padding-bottom: 60px;
 }

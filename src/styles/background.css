@@ -1,9 +1,21 @@
 body {
-  background-image:
-    radial-gradient(circle at top left, rgba(112, 130, 56, 0.08), transparent 40%),
-    radial-gradient(circle at bottom right, rgba(228, 86, 149, 0.08), transparent 40%),
-    url("/patterns/islamic-pattern.svg");
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-size: 400px 400px, 400px 400px, 180px;
-  background-position: top left, bottom right, center;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 182, 213, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(228, 86, 149, 0.35),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #fff1f7,
+      #ffd6e8
+    );
+
+  background-repeat: no-repeat;
 }
