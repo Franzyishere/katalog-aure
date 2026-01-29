@@ -26,7 +26,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://instagram.com/@aure.gift"
+            href="https://instagram.com/aure.gift"
             target="_blank"
             className="social-link ig"
           >
@@ -34,7 +34,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://tiktok.com/auree.gift"
+            href="https://tiktok.com/@auree.gift"
             target="_blank"
             className="social-link tt"
           >
