@@ -1,31 +1,116 @@
+.detail-page {
+  max-width: 720px;
+  margin: auto;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #777;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #d63384;
+}
+
+/* Card */
 .detail-card {
-  background: white;
-  border-radius: 22px;
+  background: #fff;
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* Image */
+.detail-image {
+  position: relative;
 }
 
 .detail-image img {
   width: 100%;
-  max-height: 360px;
+  height: 260px;
   object-fit: cover;
 }
 
+.ramadhan-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(214, 51, 132, 0.9);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Body */
 .detail-body {
-  padding: 24px;
+  padding: 20px;
+}
+
+.detail-category {
+  display: inline-block;
+  font-size: 12px;
+  background: #e8f6f0;
+  color: #198754;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.detail-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: #d63384;
+  margin-bottom: 6px;
 }
 
 .detail-price {
-  color: var(--pink);
+  font-size: 16px;
   font-weight: 700;
+  margin-bottom: 12px;
 }
 
+.detail-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* WhatsApp Button */
 .btn-whatsapp {
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  color: white;
-  border-radius: 14px;
-  padding: 12px;
-  font-weight: 600;
+  margin-top: 18px;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 10px;
+
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  color: white;
+  padding: 12px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+  transition: 0.25s ease;
+}
+
+.btn-whatsapp img {
+  width: 22px;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(37, 211, 102, 0.45);
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .detail-image img {
+    height: 220px;
+  }
 }

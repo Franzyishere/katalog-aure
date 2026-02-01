@@ -1,0 +1,20 @@
+.testimoni-mini {
+  margin: 32px auto;
+  max-width: 520px;
+  background: linear-gradient(135deg, #ffd6e7, #ffe9f2);
+  padding: 18px 22px;
+  border-radius: 18px;
+  text-align: center;
+  color: #8b2f5d;
+  box-shadow: 0 12px 30px rgba(228,86,149,0.18);
+}
+
+.testimoni-mini p {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.testimoni-mini span {
+  font-size: 12px;
+  opacity: 0.8;
+}

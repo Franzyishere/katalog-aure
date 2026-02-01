@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import foods from "../data/food.js";
 import FoodCard from "../components/FoodCard.jsx";
+import EmptyState from "../components/EmptyState.jsx";
+import TestimoniMini from "../components/TestimoniMini.jsx";
 import "./Home.css";
 import "./ModalRamadhan.css";
 
@@ -58,91 +60,75 @@ export default function Home() {
 
   return (
     <div className="container my-4">
-
-      {/* SECTION PEMISAH */}
-      <section className="section-divider">
-        <h3>🍪 Produk Lebaran Pilihan</h3>
-        <p>Favorit pelanggan untuk momen spesial</p>
-      </section>
-
       {/* FILTER PREMIUM */}
-    <div className="filter-type">
-      <button
-        className={hampersType === "kue-kering" ? "active" : ""}
-        onClick={() => {
-          setGroupFilter("hampers");
-          setHampersType("kue-kering");
-          setTypeFilter(null);
-        }}
-      >
-        🍪 Hampers<br />Kue Kering
-      </button>
+      <div className="mobile-tabs">
+        {[
+          { key: "kue-kering", label: "🍪 Hamper Kue Kering" },
+          { key: "snack-sembako", label: "🧃 Hampers Snack & Sembako" },
+          { key: "pecah-belah", label: "🏺 Hampers Pecah Belah" },
+          { key: "paket-hemat", label: "💝 Hampers Paket Hemat" },
+        ].map((item) => (
+          <button
+            key={item.key}
+            className={`tab-btn ${hampersType === item.key ? "active" : ""}`}
+            onClick={() => {
+              setGroupFilter("hampers");
+              setHampersType(item.key);
+              setTypeFilter(null);
+            }}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
 
-      <button
-        className={hampersType === "snack-sembako" ? "active" : ""}
-        onClick={() => {
-          setGroupFilter("hampers");
-          setHampersType("snack-sembako");
-          setTypeFilter(null);
-        }}
-      >
-        🧃 Hampers<br />Snack & Sembako
-      </button>
-
-      <button
-        className={hampersType === "pecah-belah" ? "active" : ""}
-        onClick={() => {
-          setGroupFilter("hampers");
-          setHampersType("pecah-belah");
-          setTypeFilter(null);
-        }}
-      >
-        🏺 Hampers<br />Pecah Belah
-      </button>
-
-      <button
-        className={hampersType === "paket-hemat" ? "active" : ""}
-        onClick={() => {
-          setGroupFilter("hampers");
-          setHampersType("paket-hemat");
-          setTypeFilter(null);
-        }}
-      >
-        💝 Hampers<br />Paket Hemat
-      </button>
-    </div>
       {hampersType === "kue-kering" && (
-    <div className="filter-type sub-filter">
-      <button
-        className={typeFilter === "premium" ? "active" : ""}
-        onClick={() => setTypeFilter("premium")}
-      >
-        ✨ Premium
-      </button>
+      <div className="chip-wrapper">
+        <span
+          className={`chip ${typeFilter === "premium" ? "active" : ""}`}
+          onClick={() => setTypeFilter("premium")}
+        >
+          ✨ Premium
+        </span>
 
-      <button
-        className={typeFilter === "regular" ? "active" : ""}
-        onClick={() => setTypeFilter("regular")}
-      >
-        🤍 Non Premium
-      </button>
-    </div>  
-  )}
+        <span
+          className={`chip ${typeFilter === "regular" ? "active" : ""}`}
+          onClick={() => setTypeFilter("regular")}
+        >
+          🤍 Non Premium
+        </span>
+      </div>
+    )}
 
-      {/* GRID PRODUK */}
-      <section className="container product-section">
-        <div className="row">
-          {filteredFoods.length === 0 ? (
-            <p className="text-center text-muted">
-              Silakan pilih kategori produk ✨
+        {/* GRID PRODUK */}
+        <section className="container product-section">
+          <div className="row justify-content-center">
+            {filteredFoods.length === 0 ? (
+              <EmptyState />
+            ) : (
+              filteredFoods.map((food) => (
+                <FoodCard key={food.id} food={food} />
+              ))
+            )}
+          </div>
+        </section>
+        {/* NOTE — SELALU TAMPIL */}
+        <div className="hampers-note">
+          <span className="note-icon">📌</span>
+          <div>
+            <p>
+              Apabila ingin sesuai katalog, minimal pemesanan
+              <strong> H-7</strong>
             </p>
-          ) : (
-            filteredFoods.map((food) => (
-              <FoodCard key={food.id} food={food} />
-            ))
-          )}
+            <p>
+              Apabila ingin request isian / media, minimal pemesanan
+              <strong> H-5</strong>
+            </p>
+          </div>
         </div>
-      </section>
+
+        {/* TESTIMONI */}
+        <TestimoniMini />
 
       {/* MODAL SYARAT */}
       {showModal && (

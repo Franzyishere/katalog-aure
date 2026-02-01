@@ -45,42 +45,6 @@
   padding-bottom: 60px;
 }
 
-/* =========================
-   FILTER PREMIUM
-========================= */
-.filter-type {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin: 24px 0 32px;
-  flex-wrap: wrap;
-}
-
-.filter-type button {
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid #e5e5e5;
-  background: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  color: #555;
-}
-
-/* hover */
-.filter-type button:hover {
-  background: #f8f8f8;
-  transform: translateY(-1px);
-}
-
-/* aktif */
-.filter-type button.active {
-  background: linear-gradient(135deg, #c59d5f, #e8c88f);
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 6px 16px rgba(197, 157, 95, 0.35);
-}
 .product-section .row {
   animation: fadeIn 0.35s ease-in-out;
 }
@@ -93,6 +57,129 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ============
+  TAB FILTER 
+===============*/
+.mobile-tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 4px;
+  margin-bottom: 10px;
+  scrollbar-width: none;
+}
+.mobile-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #eee;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.tab-btn.active {
+  background: #ffe3ec;
+  color: #d63384;
+  border-color: #f3b6c9;
+}
+
+/* chip */
+.chip-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.chip.active {
+  background: #d63384;
+  color: white;
+}
+
+.initial-state {
+  text-align: center;
+  padding: 40px 16px 20px;
+  color: #666;
+}
+
+.initial-illustration {
+  max-width: 150px;
+  width: 100%;
+  margin-bottom: 16px;
+  opacity: 0.95;
+}
+
+.initial-state h5 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.initial-state p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.initial-hint {
+  font-size: 13px;
+  color: #d63384;
+}
+/* =========================
+   NOTE HAMPERS (GLOBAL)
+========================= */
+
+.hampers-note {
+  max-width: 520px;
+  margin: 24px auto 8px;
+  padding: 12px 14px;
+  background: #fff3f8;
+  border-radius: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  box-shadow: 0 6px 18px rgba(228, 86, 149, 0.12);
+}
+
+.note-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.note-text p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .hampers-note {
+    margin-top: 18px;
+    padding: 10px 12px;
+  }
+
+  .note-text p {
+    font-size: 12px;
   }
 }
 

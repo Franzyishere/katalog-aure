@@ -3,6 +3,7 @@ const foods = [
   id: 1,
   name: "Nastar",
   price: 75000,
+  deskripsi: "kue nastar premium isi 12",
   group: "hampers",
   hampersType: "kue-kering",
   type: "premium",
