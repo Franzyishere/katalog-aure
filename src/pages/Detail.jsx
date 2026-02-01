@@ -12,17 +12,24 @@ export default function Detail() {
 
   const waMessage = encodeURIComponent(
     `Halo Aure Gifts & Hampers 🌙
-
 Nama & No. Hp Pemesan:
-Alamat:
-Ambil / Kirim / COD:
-Tanggal Pengambilan:
+Alamat :
+Saya ingin memesan :
+   🍪 Produk: Nastar
+   💰 Harga: Rp 75.000
+Sebanyak : 
+Ambil/Kirim/COD :
+Bila dikirim, 
+Nama penerima:
+Alamat penerima:
+Bila diambil, 
+Tanggal Pengambilan :
+Bila COD,
 
-Saya ingin memesan:
-🍪 Produk: ${food.name}
-💰 Harga: Rp ${food.price.toLocaleString()}
+(pilih salah satu untuk opsi pengambilan)
 
-Note: Untuk pengiriman harap kirimkan lokasi (Shareloc)`
+NB: apabila dilakukan pengiriman, tolong kirimkan share lokasi yang sesuai 
+Terimakasih!!`
   );
 
   return (
