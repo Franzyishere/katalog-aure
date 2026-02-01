@@ -1,70 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import foods from "../data/food.js";
 import FoodCard from "../components/FoodCard.jsx";
-import { useRef } from "react";
 import "./Home.css";
 import "./ModalRamadhan.css";
-import React from "react";
 
 export default function Home() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
+  const [groupFilter, setGroupFilter] = useState(null);      // hampers
+  const [hampersType, setHampersType] = useState(null);     // kue-kering, dll
+  const [typeFilter, setTypeFilter] = useState(null);       // premium / regular
   const [showModal, setShowModal] = useState(false);
   const [closing, setClosing] = useState(false);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      // swipe kiri
-      setActiveBanner((prev) => (prev + 1) % banners.length);
-    }
-
-    if (touchEndX.current - touchStartX.current > 50) {
-      // swipe kanan
-      setActiveBanner((prev) =>
-        prev === 0 ? banners.length - 1 : prev - 1
-      );
-    }
-  };
-
-const handleTouchMove = (e) => {
-  touchEndX.current = e.changedTouches[0].screenX;
-};
-
-  // ======================
-  // 🌙 BANNER SLIDER DATA
-  // ======================
-  const banners = [
-    {
-      badge: "🌙 Ramadhan Edition",
-      title: "Open Order Lebaran 2026",
-      desc: "Hampers & Kue Lebaran Homemade • Stock Terbatas",
-    },
-    {
-      badge: "🛍️ Easy Order",
-      title: "Pesan Mudah via WhatsApp",
-      desc: "Klik produk favorit & order langsung tanpa ribet",
-    },
-    {
-      badge: "⏳ Limited Stock",
-      title: "Kuota Produksi Terbatas",
-      desc: "Pastikan order sebelum H-4 Idul Fitri",
-    },
-  ];
-
-  const [activeBanner, setActiveBanner] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveBanner((prev) => (prev + 1) % banners.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   // ======================
   // MODAL RULES
@@ -85,30 +31,120 @@ const handleTouchMove = (e) => {
     }, 500);
   };
 
-  const filteredFoods = foods.filter(food => {
-    const matchName = food.name.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = category === "All" || food.category === category;
-    return matchName && matchCategory;
+  // ======================
+  // FILTER PRODUK
+  // ======================
+  const filteredFoods = foods.filter((food) => {
+    // belum pilih apa-apa
+    if (!groupFilter) return false;
+
+    // filter grup
+    if (food.group !== groupFilter) return false;
+
+    // filter jenis hampers
+    if (hampersType && food.hampersType !== hampersType) return false;
+
+    // khusus kue kering → filter premium / non premium
+    if (
+      hampersType === "kue-kering" &&
+      typeFilter &&
+      food.type !== typeFilter
+    ) {
+      return false;
+    }
+
+    return true;
   });
 
   return (
     <div className="container my-4">
+
       {/* SECTION PEMISAH */}
       <section className="section-divider">
         <h3>🍪 Produk Lebaran Pilihan</h3>
         <p>Favorit pelanggan untuk momen spesial</p>
       </section>
 
+      {/* FILTER PREMIUM */}
+    <div className="filter-type">
+      <button
+        className={hampersType === "kue-kering" ? "active" : ""}
+        onClick={() => {
+          setGroupFilter("hampers");
+          setHampersType("kue-kering");
+          setTypeFilter(null);
+        }}
+      >
+        🍪 Hampers<br />Kue Kering
+      </button>
+
+      <button
+        className={hampersType === "snack-sembako" ? "active" : ""}
+        onClick={() => {
+          setGroupFilter("hampers");
+          setHampersType("snack-sembako");
+          setTypeFilter(null);
+        }}
+      >
+        🧃 Hampers<br />Snack & Sembako
+      </button>
+
+      <button
+        className={hampersType === "pecah-belah" ? "active" : ""}
+        onClick={() => {
+          setGroupFilter("hampers");
+          setHampersType("pecah-belah");
+          setTypeFilter(null);
+        }}
+      >
+        🏺 Hampers<br />Pecah Belah
+      </button>
+
+      <button
+        className={hampersType === "paket-hemat" ? "active" : ""}
+        onClick={() => {
+          setGroupFilter("hampers");
+          setHampersType("paket-hemat");
+          setTypeFilter(null);
+        }}
+      >
+        💝 Hampers<br />Paket Hemat
+      </button>
+    </div>
+      {hampersType === "kue-kering" && (
+    <div className="filter-type sub-filter">
+      <button
+        className={typeFilter === "premium" ? "active" : ""}
+        onClick={() => setTypeFilter("premium")}
+      >
+        ✨ Premium
+      </button>
+
+      <button
+        className={typeFilter === "regular" ? "active" : ""}
+        onClick={() => setTypeFilter("regular")}
+      >
+        🤍 Non Premium
+      </button>
+    </div>  
+  )}
+
       {/* GRID PRODUK */}
       <section className="container product-section">
         <div className="row">
-          {foods.map((food) => (
-            <FoodCard key={food.id} food={food} />
-          ))}
+          {filteredFoods.length === 0 ? (
+            <p className="text-center text-muted">
+              Silakan pilih kategori produk ✨
+            </p>
+          ) : (
+            filteredFoods.map((food) => (
+              <FoodCard key={food.id} food={food} />
+            ))
+          )}
         </div>
       </section>
 
-      {/* MODAL SYARAT & KETENTUAN */}
+      {/* MODAL SYARAT */}
       {showModal && (
         <div
           className={`modal fade show ramadhan-fade-overlay ${
@@ -118,23 +154,22 @@ const handleTouchMove = (e) => {
         >
           <div className="modal-dialog modal-dialog-centered modal-lg ramadhan-fade-modal">
             <div className="modal-content">
-
               <div className="modal-header bg-brand-green text-white">
                 <h5 className="modal-title d-flex align-items-center gap-2">
-                  <span className="ramadhan-icon">🌙</span>
-                  Syarat & Ketentuan Pemesanan
+                  🌙 Syarat & Ketentuan Pemesanan
                 </h5>
               </div>
 
               <div className="modal-body">
                 <div className="mb-3">
+                  <h6 className="fw-bold text-brand-dark">Terimakasih telah meilih layanan kami dan mohon membaca syarat ketentuan berikut sebelum melakukan pemesanan.</h6>
                   <h6 className="fw-bold text-brand-pink">📝 Pemesanan & Pembayaran</h6>
                   <ul className="small text-muted">
                     <li>Pelanggan dapat melihat katalog produk melalui website Aure Gifts & Hampers.</li>
                     <li>Pemesanan dilakukan dengan mengisi format order melalui WhatsApp (nomor tertera pada website).</li>
                     <li>Pembayaran dilakukan dengan sistem DP minimal <strong>50%</strong> dari total pemesanan.</li>
                     <li>Pembatalan pesanan (cancel) menyebabkan <strong>DP hangus</strong>.</li>
-                    <li>Pelunasan dilakukan saat pengambilan parcel.</li>
+                    <li>Pelunasan dilakukan saat pengambilan hampers.</li>
                   </ul>
                 </div>
 
@@ -143,15 +178,15 @@ const handleTouchMove = (e) => {
                   <ul className="small text-muted">
                     <li>Ketersediaan produk menyesuaikan dengan stok yang tersedia.</li>
                     <li>Jika terdapat item atau varian yang habis, maka akan digantikan dengan produk lain yang setara nilainya.</li>
-                    <li>Penggantian dilakukan dengan tetap memperhatikan kualitas dan estetika parcel.</li>
+                    <li>Penggantian dilakukan dengan tetap memperhatikan kualitas dan estetika hampers.</li>
                   </ul>
                 </div>
 
                 <div className="mb-3">
-                  <h6 className="fw-bold text-brand-pink">🎀 Dekorasi & Tampilan Parcel</h6>
+                  <h6 className="fw-bold text-brand-pink">🎀 Dekorasi & Tampilan Hampers</h6>
                   <ul className="small text-muted">
                     <li>Warna, pita, bunga, dan aksesoris dekorasi menyesuaikan dengan stok yang tersedia.</li>
-                    <li>Kami memastikan tampilan parcel tetap serasi, rapi, dan sesuai konsep katalog.</li>
+                    <li>Kami memastikan tampilan hampers tetap serasi, rapi, dan sesuai konsep katalog.</li>
                   </ul>
                 </div>
 
@@ -159,8 +194,8 @@ const handleTouchMove = (e) => {
                   <h6 className="fw-bold text-brand-pink">🚚 Pengambilan & Pengiriman</h6>
                   <ul className="small text-muted">
                     <li>Tanggal pengambilan wajib diisi melalui format order pemesanan.</li>
-                    <li>Pengambilan langsung sangat disarankan untuk menjaga kondisi parcel tetap optimal.</li>
-                    <li>Opsi COD hanya tersedia di area <strong>501 & Stadion</strong>.</li>
+                    <li>Pengambilan langsung sangat disarankan untuk menjaga kondisi hampers tetap optimal.</li>
+                    <li>Opsi COD tersedia hanya di area Madiun kota <strong>(Min. Pembelian Rp 50.000)</strong>.</li>
                     <li>Pengiriman dapat menggunakan layanan transportasi online (Gojek, Grab, dll) secara mandiri atau dipesankan oleh penjual.</li>
                     <li>Pengambilan maksimal <strong>H-4 Hari Raya Idul Fitri</strong>.</li>
                     <li>Alamat pengambilan/pengiriman akan diinformasikan setelah pemesanan.</li>
@@ -176,10 +211,12 @@ const handleTouchMove = (e) => {
                 </div>
                </div>
 
-              <p className="text-center small text-muted mt-3">
-                Terima kasih telah mempercayakan momen spesial Anda bersama  
-                <strong> Aure Gifts & Hampers </strong> 🤍
-              </p>
+              <div className="modal-body">
+                <p className="small text-muted">
+                  Terima kasih telah mempercayakan momen spesial Anda bersama
+                  <strong> Aure Gifts & Hampers</strong> 🤍
+                </p>
+              </div>
 
               <div className="modal-footer">
                 <button

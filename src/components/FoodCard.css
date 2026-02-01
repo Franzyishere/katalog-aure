@@ -79,3 +79,14 @@
   background: var(--pink-main);
   color: white;
 }
+.badge-premium {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #c59d5f, #e8c88f);
+  color: white;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}

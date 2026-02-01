@@ -12,7 +12,11 @@ export default function Detail() {
 
   const waMessage = encodeURIComponent(
     `Halo Aure Gifts & Hampers 🌙
-    Saya ingin memesan:
+    Nama :
+    Alamat :
+    Kirim, ambil atau cod :
+    Tanggal Pengambilan :
+    Saya ingin memesan :
     🍪 Produk: ${food.name}
     💰 Harga: Rp ${food.price.toLocaleString()}
 

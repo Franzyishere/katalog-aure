@@ -61,6 +61,10 @@
   color: var(--pink-dark);
 }
 
+.text-brand-dark {
+  color: var(--text-dark);
+}
+
 /* List */
 .modal-body ul {
   padding-left: 18px;

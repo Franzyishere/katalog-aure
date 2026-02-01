@@ -19,12 +19,10 @@ export default function FoodCard({ food }) {
           <h6 className="product-title">{food.name}</h6>
 
           <div className="product-price">
-            Rp {food.price.toLocaleString()}
+            {food.price === 0
+              ? "Harga via WhatsApp"
+              : `Rp ${food.price.toLocaleString("id-ID")}`}
           </div>
-
-          {/* <span className="product-category">
-            {food.category}
-          </span> */}
 
           <Link
             to={`/detail/${food.id}`}
