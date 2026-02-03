@@ -1,4 +1,4 @@
-import "./TestimoniMini.css";
+import "../styles/TestimoniMini.css";
 
 export default function TestimoniMini() {
   return (

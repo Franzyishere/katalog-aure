@@ -1,78 +1,91 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import foods from "../data/food.js";
-import "./Detail.css";
+import "../styles/Detail.css";
 
 export default function Detail() {
   const { id } = useParams();
-  const food = foods.find((f) => f.id == id);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const food = foods.find((f) => String(f.id) === String(id));
+
+  // ======================
+  // BACK HANDLER (AMAN)
+  // ======================
+  const handleBack = () => {
+    if (location.key !== "default") {
+      navigate(-1); // balik ke halaman sebelumnya
+    } else {
+      navigate("/"); // fallback
+    }
+  };
 
   if (!food) {
     return <p className="text-center mt-5">Data tidak ditemukan</p>;
   }
 
+  // ======================
+  // WA MESSAGE
+  // ======================
   const waMessage = encodeURIComponent(
     `Halo Aure Gifts & Hampers 🌙
 Nama & No. Hp Pemesan:
 Alamat :
 Saya ingin memesan :
-   🍪 Produk: Nastar
-   💰 Harga: Rp 75.000
-Sebanyak : 
-Ambil/Kirim/COD :
-Bila dikirim, 
-Nama penerima:
-Alamat penerima:
-Bila diambil, 
-Tanggal Pengambilan :
-Bila COD,
+🍪 Produk: ${food.name}
+💰 Harga: Rp ${food.price.toLocaleString()}
+Sebanyak :
+Ambil / Kirim / COD :
 
-(pilih salah satu untuk opsi pengambilan)
-
-NB: apabila dilakukan pengiriman, tolong kirimkan share lokasi yang sesuai 
-Terimakasih!!`
+Terimakasih 🤍`
   );
 
   return (
-    <div className="container detail-page">
+    <div className="detail-page">
 
-      {/* BACK */}
-      <Link to="/" className="back-link">
-        ← Kembali ke Katalog
-      </Link>
+      {/* ================= CONTENT ================= */}
+      <div className="container detail-container">
 
-      <div className="detail-card">
+        <div className="detail-card">
 
-        {/* IMAGE */}
-        <div className="detail-image">
-          <img src={food.image} alt={food.name} />
-          <span className="ramadhan-tag">🌙 Ramadhan Edition</span>
+          {/* IMAGE */}
+          <div className="detail-image">
+            <img src={food.image} alt={food.name} />
+            <span className="ramadhan-tag">🌙 Ramadhan Edition</span>
+          </div>
+
+          {/* BODY */}
+          <div className="detail-body">
+            <span className="detail-category">{food.hampersType}</span>
+
+            <h2 className="detail-title">{food.name}</h2>
+
+            <h6 className="detail-price">
+              Rp {food.price.toLocaleString()}
+            </h6>
+
+            {/* DESKRIPSI */}
+            <div className="detail-desc">
+              {food.deskripsi
+                ?.split("\n")
+                .map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+            </div>
+
+            {/* CTA */}
+            <a
+              href={`https://wa.me/6285604782201?text=${waMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp"
+            >
+              <img src="/icons/whatsapp.svg" alt="WA" />
+              Pesan via WhatsApp
+            </a>
+          </div>
+
         </div>
-
-        {/* CONTENT */}
-        <div className="detail-body">
-          <span className="detail-category">{food.type}</span>
-
-          <h2 className="detail-title">{food.name}</h2>
-
-          <h6 className="detail-price">
-            Rp {food.price.toLocaleString()}
-          </h6>
-
-          <p className="detail-desc">
-            {food.deskripsi}
-          </p>
-
-          {/* CTA */}
-          <a
-            href={`https://wa.me/6285604782201?text=${waMessage}`}
-            target="_blank"
-            className="btn-whatsapp"
-          >
-            <img src="/icons/whatsapp.svg" alt="WA" />
-            Pesan via WhatsApp
-          </a>
-        </div>
-
       </div>
     </div>
   );

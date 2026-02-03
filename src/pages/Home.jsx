@@ -1,24 +1,34 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams, useNavigationType } from "react-router-dom";
 import foods from "../data/food.js";
 import FoodCard from "../components/FoodCard.jsx";
 import EmptyState from "../components/EmptyState.jsx";
-import TestimoniMini from "../components/TestimoniMini.jsx";
-import "./Home.css";
-import "./ModalRamadhan.css";
+import HeroRamadhan from "../components/HeroRamadhan.jsx";
+import "../styles/Home.css";
+import "../styles/ModalRamadhan.css";
 
 export default function Home() {
   const [groupFilter, setGroupFilter] = useState(null);      // hampers
-  const [hampersType, setHampersType] = useState(null);     // kue-kering, dll
-  const [typeFilter, setTypeFilter] = useState(null);       // premium / regular
+  const [searchParams, setSearchParams] = useSearchParams();
+  // ======================
+  // FILTER DARI URL
+  // ======================
+  const hampersType = searchParams.get("hampers");
+  const typeFilter = searchParams.get("type");
+  // ======================
+  // POPUP STATE
+  // ======================      // premium / regular
   const [showModal, setShowModal] = useState(false);
   const [closing, setClosing] = useState(false);
-
-
   // ======================
-  // MODAL RULES
+  // POPUP LOGIC
   // ======================
   useEffect(() => {
-    setShowModal(true);
+    const popupShown = sessionStorage.getItem("ramadhan-popup");
+
+    if (!popupShown) {
+      setShowModal(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -27,26 +37,22 @@ export default function Home() {
 
   const handleAgree = () => {
     setClosing(true);
+
+    sessionStorage.setItem("ramadhan-popup", "true");
+
     setTimeout(() => {
       setShowModal(false);
       setClosing(false);
-    }, 500);
+    }, 400);
   };
 
   // ======================
   // FILTER PRODUK
   // ======================
   const filteredFoods = foods.filter((food) => {
-    // belum pilih apa-apa
-    if (!groupFilter) return false;
+    if (!hampersType) return false;
+    if (food.hampersType !== hampersType) return false;
 
-    // filter grup
-    if (food.group !== groupFilter) return false;
-
-    // filter jenis hampers
-    if (hampersType && food.hampersType !== hampersType) return false;
-
-    // khusus kue kering → filter premium / non premium
     if (
       hampersType === "kue-kering" &&
       typeFilter &&
@@ -57,48 +63,71 @@ export default function Home() {
 
     return true;
   });
+  // ======================
+  // HANDLER FILTER
+  // ======================
+  const selectHampers = (key) => {
+    setSearchParams({ hampers: key });
+  };
+
+  const selectType = (type) => {
+    setSearchParams({
+      hampers: "kue-kering",
+      type,
+    });
+  };
 
   return (
-    <div className="container my-4">
-      {/* FILTER PREMIUM */}
-      <div className="mobile-tabs">
-        {[
-          { key: "kue-kering", label: "🍪 Hamper Kue Kering" },
-          { key: "snack-sembako", label: "🧃 Hampers Snack & Sembako" },
-          { key: "pecah-belah", label: "🏺 Hampers Pecah Belah" },
-          { key: "paket-hemat", label: "💝 Hampers Paket Hemat" },
-        ].map((item) => (
-          <button
-            key={item.key}
-            className={`tab-btn ${hampersType === item.key ? "active" : ""}`}
-            onClick={() => {
-              setGroupFilter("hampers");
-              setHampersType(item.key);
-              setTypeFilter(null);
-            }}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
+    <>
+    <HeroRamadhan />
+      <div className="container my-4">
+        {/* ================= FILTER TABS ================= */}
+        <div className="mobile-tabs">
+          {[
+            { key: "kue-kering", label: "🍪 Hampers Kue Kering" },
+            { key: "snack-sembako", label: "🧃 Snack & Sembako" },
+            { key: "pecah-belah", label: "🏺 Pecah Belah" },
+            { key: "paket-hemat", label: "💝 Paket Hemat" },
+          ].map((item) => (
+            <button
+              key={item.key}
+              className={`tab-btn ${
+                hampersType === item.key ? "active" : ""
+              }`}
+              onClick={() => selectHampers(item.key)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
-      {hampersType === "kue-kering" && (
-      <div className="chip-wrapper">
-        <span
-          className={`chip ${typeFilter === "premium" ? "active" : ""}`}
-          onClick={() => setTypeFilter("premium")}
-        >
-          ✨ Premium
-        </span>
+        {/* ================= SUB FILTER ================= */}
+        {hampersType === "kue-kering" && (
+          <div className="chip-wrapper">
+            <span
+              className={`chip ${typeFilter === "premium" ? "active" : ""}`}
+              onClick={() => selectType("premium")}
+            >
+              ✨ Premium
+            </span>
 
-        <span
-          className={`chip ${typeFilter === "regular" ? "active" : ""}`}
-          onClick={() => setTypeFilter("regular")}
-        >
-          🤍 Non Premium
-        </span>
-      </div>
-    )}
+            <span
+              className={`chip ${typeFilter === "regular" ? "active" : ""}`}
+              onClick={() => selectType("regular")}
+            >
+              🤍 Non Premium
+            </span>
+
+            <span
+              className={`chip ${
+                typeFilter === "custom-satuan" ? "active" : ""
+              }`}
+              onClick={() => selectType("custom-satuan")}
+            >
+              🎀 Custom Satuan
+            </span>
+          </div>
+        )}
 
         {/* GRID PRODUK */}
         <section className="container product-section">
@@ -126,9 +155,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
-        {/* TESTIMONI */}
-        <TestimoniMini />
 
       {/* MODAL SYARAT */}
       {showModal && (
@@ -218,5 +244,6 @@ export default function Home() {
         </div>
       )}
     </div>
+    </>
   );
 }

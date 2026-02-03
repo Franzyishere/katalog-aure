@@ -1,5 +1,5 @@
 import { FaWhatsapp, FaInstagram, FaTiktok } from "react-icons/fa";
-import "./Footer.css";
+import "../styles/Footer.css";
 
 export default function Footer() {
   return (

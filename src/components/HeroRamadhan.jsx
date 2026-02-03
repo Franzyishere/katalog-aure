@@ -1,4 +1,4 @@
-import "./HeroRamadhan.css";
+import "../styles/HeroRamadhan.css";
 
 export default function HeroRamadhan() {
   return (
