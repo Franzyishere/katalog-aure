@@ -10,7 +10,7 @@ export default function FoodCard({ food }) {
         <Link to={`/detail/${food.id}`}>
           <div className="product-image">
             <img src={food.image} alt={food.name} />
-            <span className="ramadhan-tag">Ramadhan</span>
+            <span className="ramadhan-tag">Eid Al-Fitr</span>
           </div>
         </Link>
 

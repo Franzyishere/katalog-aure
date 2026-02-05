@@ -1,92 +1,78 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
-import foods from "../data/food.js";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import foods from "../data/food";
 import "../styles/Detail.css";
 
 export default function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
+  const food = foods.find((f) => f.id == id);
 
-  const food = foods.find((f) => String(f.id) === String(id));
+  const [showImage, setShowImage] = useState(false);
 
-  // ======================
-  // BACK HANDLER (AMAN)
-  // ======================
   const handleBack = () => {
-    if (location.key !== "default") {
-      navigate(-1); // balik ke halaman sebelumnya
-    } else {
-      navigate("/"); // fallback
-    }
+    navigate(-1);
   };
 
   if (!food) {
     return <p className="text-center mt-5">Data tidak ditemukan</p>;
   }
 
-  // ======================
-  // WA MESSAGE
-  // ======================
-  const waMessage = encodeURIComponent(
-    `Halo Aure Gifts & Hampers 🌙
-Nama & No. Hp Pemesan:
-Alamat :
-Saya ingin memesan :
-🍪 Produk: ${food.name}
-💰 Harga: Rp ${food.price.toLocaleString()}
-Sebanyak :
-Ambil / Kirim / COD :
-
-Terimakasih 🤍`
-  );
-
   return (
-    <div className="detail-page">
+    <div className="container detail-page">
 
-      {/* ================= CONTENT ================= */}
-      <div className="container detail-container">
+      {/* BACK */}
+      <button className="btn btn-light mb-3" onClick={handleBack}>
+        ← Kembali
+      </button>
 
-        <div className="detail-card">
+      <div className="detail-card">
 
-          {/* IMAGE */}
-          <div className="detail-image">
-            <img src={food.image} alt={food.name} />
-            <span className="ramadhan-tag">🌙 Ramadhan Edition</span>
+        {/* IMAGE */}
+        <div
+          className="detail-image clickable"
+          onClick={() => setShowImage(true)}
+        >
+          <img src={food.image} alt={food.name} />
+          <span className="ramadhan-tag">🌙 Eid Special Edition</span>
+          <span className="zoom-hint">Tap untuk lihat penuh</span>
+        </div>
+
+        {/* CONTENT */}
+        <div className="detail-body">
+          <span className="detail-category">{food.hampersType}</span>
+          <h2 className="detail-title">{food.name}</h2>
+
+          <h6 className="detail-price">
+            Rp {food.price.toLocaleString()}
+          </h6>
+
+          <div className="detail-desc">
+            {food.deskripsi.split("\n").map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
           </div>
 
-          {/* BODY */}
-          <div className="detail-body">
-            <span className="detail-category">{food.hampersType}</span>
-
-            <h2 className="detail-title">{food.name}</h2>
-
-            <h6 className="detail-price">
-              Rp {food.price.toLocaleString()}
-            </h6>
-
-            {/* DESKRIPSI */}
-            <div className="detail-desc">
-              {food.deskripsi
-                ?.split("\n")
-                .map((line, i) => (
-                  <p key={i}>{line}</p>
-                ))}
-            </div>
-
-            {/* CTA */}
-            <a
-              href={`https://wa.me/6285604782201?text=${waMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp"
-            >
-              <img src="/icons/whatsapp.svg" alt="WA" />
-              Pesan via WhatsApp
-            </a>
-          </div>
-
+          <a
+            href={`https://wa.me/6285604782201`}
+            target="_blank"
+            className="btn-whatsapp"
+          >
+            <img src="/icons/whatsapp.svg" alt="WA" />
+            Pesan via WhatsApp
+          </a>
         </div>
       </div>
+
+      {/* =====================
+          IMAGE MODAL
+      ===================== */}
+      {showImage && (
+        <div className="image-modal" onClick={() => setShowImage(false)}>
+          <span className="image-close">✕</span>
+          <img src={food.image} alt={food.name} />
+        </div>
+      )}
     </div>
   );
 }

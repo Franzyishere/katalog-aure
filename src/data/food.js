@@ -2,7 +2,7 @@ const foods = [
 {
   id: 1,
   name: "Nastar",
-  price: 75000,
+  price: 45000,
   deskripsi: "kue nastar premium isi 12",
   group: "hampers",
   hampersType: "kue-kering",
@@ -12,7 +12,7 @@ const foods = [
 {
   id: 2,
   name: "Cookies",
-  price: 70000,
+  price: 35000,
   deskripsi:``,
   group: "hampers",
   hampersType: "kue-kering",
@@ -22,7 +22,7 @@ const foods = [
 {
   id: 3,
   name: "Kuping Gajah",
-  price: 45000,
+  price: 20000,
   deskripsi:``,
   group: "hampers",
   hampersType: "kue-kering",
@@ -32,7 +32,7 @@ const foods = [
 {
   id: 4,
   name: "Kue Soes",
-  price: 40000,
+  price: 25000,
   deskripsi:``,
   group: "hampers",
   hampersType: "kue-kering",
@@ -55,18 +55,9 @@ const foods = [
   deskripsi:`
 🌙💗 Aurea Hampers 💗🌙
 
-Hampers Lebaran berisi:
-• Marjan Squash
-• Kue kering & crackers renyah
-• Arjuna Soes lembut
-• Teh Celup Sosro
-
-Pilihan hampers lengkap untuk menemani momen santai dan kebersamaan keluarga di Hari Raya.
-
-Dikemas cantik dengan ribbon, orchid, dan hangtag.
-Cocok untuk keluarga, kerabat, tetangga, rekan kerja, dan relasi ✨
-
-🎁 Lengkap Isinya, Ramai Suasananya!
+Hampers Lebaran berisi minuman Marjan Squash yang segar, kue kering & crackers renyah, Arjuna Soes yang lembut, serta Teh Celup Sosro untuk momen santai bersama keluarga. Dikemas cantik dengan ribbon, orchid, dan hangtag, pas untuk hadiah Idul Fitri.
+Cocok untuk Keluarga, kerabat, tetangga, rekan kerja, dan relasi.
+✨ “Lengkap Isinya, Ramai Suasananya!” ✨
   `,
   group: "hampers",
   hampersType: "snack-sembako",
@@ -133,14 +124,8 @@ Cocok untuk keluarga, kerabat, tetangga, rekan kerja, dan relasi ✨
   deskripsi:`
 🌙💗 Ren Gift 💗🌙
 
-Mini totebag pink pastel yang gemas, berisi:
-• Indomilk mini
-• Top & Chocopie
-
-Dihias ribbon elegan dan hangtag manis, dikemas rapi dan lucu.
-Cocok untuk berbagi kebahagiaan dengan saudara, keponakan, dan anak-anak di Hari Raya Idul Fitri ✨
-
-🎁 Hadiah mungil yang bikin senyum lebar di hari yang suci.
+Mini totebag gemas dengan nuansa pink pastel, berisi Indomilk mini, top & Chocopie, dipercantik dengan ribbon elegan dan hangtag manis. Dikemas rapi, lucu, dan siap dibagikan. Cocok untuk berbagi kebahagiaan dengan saudara, keponakan, dan anak anak di hari raya Idul Fitri. 
+Hadiah mungil yang bisa bikin senyum lebar dan hati ikut bahagia di hari yang suci✨
 
 Harga:
 • Satuan: Rp 20.000
@@ -162,22 +147,13 @@ Harga:
 {
   id: 15,
   name: "Lily Hampers",
-  price: 82000,
+  price: 95000,
   deskripsi:`
 🌙💗 Lily Hampers 💗🌙
 
-Hampers Lebaran berisi:
-• Nastar premium homemade 600 ml
-• Cookies premium 600 ml
-
-Dibuat dari bahan premium pilihan, fresh tanpa pengawet.
-Nastar bertekstur lembut dan lumer dengan isian nanas manis-asam seimbang.
-Cookies renyah, buttery, dan wangi di setiap gigitan.
-
-Dikemas rapi dengan tas mika, ribbon elegan, dan hangtag cantik.
-Cocok untuk keluarga, sahabat, rekan kerja, dan relasi bisnis ✨
-
-🎁 Dua Toples Manis, Satu Makna Silaturahmi.
+Hampers Lebaran berisi nastar premium homemade 600 ml dan cookies premium 600 ml, dibuat dengan bahan bahan premium pilihan, fresh tanpa pengawet. Kue Nastar bertekstur lembut, lumer, dengan isian nanas manis-asam seimbang. Cookies renyah, buttery, dan wangi, nikmat di setiap gigitan. Dikemas rapi dengan tas mika, ribbon elegan, dan hangtag, praktis dan cantik untuk hadiah Idul Fitri🌙✨
+Cocok untuk Keluarga, sahabat, rekan kerja, dan relasi bisnis.
+✨ “Dua Toples Manis, Satu Makna Silaturahmi.” ✨
 `,
   group: "hampers",
   hampersType: "paket-hemat",
@@ -186,17 +162,13 @@ Cocok untuk keluarga, sahabat, rekan kerja, dan relasi bisnis ✨
 {
   id: 16,
   name: "Qura Gift",
-  price: 40000,
+  price: 45000,
   deskripsi:`
 🌙💗 Qura Gift 💗🌙
 
-Hampers Lebaran berisi nastar premium homemade 500 ml.
-Dibuat dari bahan pilihan, fresh tanpa pengawet, lembut dan lumer di setiap gigitan.
-
-Dikemas cantik dengan ribbon dan hangtag eksklusif.
-Cocok untuk keluarga, sahabat, tetangga, rekan kerja, dan relasi ✨
-
-🎁 Manisnya nastar, hangatnya kebersamaan.
+Hampers Lebaran berisi nastar premium homemade 500 ml, dibuat dengan bahan bahan premium pilihan, fresh tanpa pengawet, lembut dan lumer di setiap gigitan. Dikemas cantik dengan ribbon dan hangtag eksklusif, rasanya pun pasti istimewa, siap dijadikan hadiah istimewa di hari raya.
+Cocok untuk Keluarga, sahabat, tetangga, rekan kerja, dan relasi✨
+✨ Manisnya nastar, hangatnya kebersamaan🎁
 
 Harga:
 • Satuan: Rp 40.000

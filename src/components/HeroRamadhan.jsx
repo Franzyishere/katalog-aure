@@ -6,7 +6,7 @@ export default function HeroRamadhan() {
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        <span className="hero-badge">🌙 Ramadhan Edition</span>
+        <span className="hero-badge">🌙 Eid Special Edition</span>
 
         <h1 className="hero-title">
           Open Order Lebaran <span>2026</span>

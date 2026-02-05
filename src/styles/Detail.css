@@ -166,3 +166,48 @@
     height: 220px;
   }
 }
+
+/* IMAGE CLICKABLE */
+.detail-image.clickable {
+  cursor: zoom-in;
+  position: relative;
+}
+
+.zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-size: 11px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* IMAGE MODAL */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.image-modal img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.image-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+}

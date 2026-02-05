@@ -44,7 +44,7 @@ export default function Footer() {
 
         {/* BOTTOM */}
         <div className="footer-bottom">
-          © {new Date().getFullYear()} Aure Gifts & Hampers • Ramadhan Edition 🌙
+          © {new Date().getFullYear()} Aure Gifts & Hampers • Eid Special Edition 🌙
         </div>
 
       </div>
