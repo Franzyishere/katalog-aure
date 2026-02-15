@@ -28,7 +28,7 @@ const foods = [
     group: "hampers",
     hampersType: "kue-kering",
     type: "premium",
-    image: "/images/cookies.jpg",
+    image: "/images/cookies.jpeg",
   },
 
   {
@@ -82,7 +82,19 @@ HARGA : Rp. 60.000`,
     id: 7,
     name: "Custom Hampers",
     price: 0,
-    deskripsi: ``,
+    deskripsi: `
+🌙💗 Custom Hampers 💗🌙
+
+AURÉ menghadirkan Custom Hampers yang dibuat sesuai dengan budget, tema, dan kebutuhanmu, memberikan kebebasan untuk menentukan isi, nuansa warna, hingga konsep kemasan. Setiap hampers dikurasi dengan cermat, dikerjakan secara detail, dan dikemas rapi agar tampil elegan, personal, serta siap langsung diberikan. Layanan ini cocok untuk berbagai kebutuhan, mulai dari hadiah personal, corporate gift, hingga momen spesial dan hari raya. 
+
+Minimal order: 1 box
+Budget: Menyesuaikan request (rekomendasi akan diberikan oleh tim AURÉ)
+Isi produk bisa request sesuai kebutuhan 
+Desain & warna disesuaikan dengan keinginan pelanggan 
+Revisi: Maks. 1x sebelum produksi
+Harga final menyesuaikan isi & tingkat kesulitan custom produksi
+
+“Custom with Heart, Curated with Care.”`,
     group: "hampers",
     hampersType: "snack-sembako",
     image: "/images/custom-hampers.png",
@@ -198,7 +210,7 @@ Cocok untuk keluarga, kerabat, tetangga, rekan kerja, dan relasi.
 ✨ Praktis, cantik, dan penuh makna dalam satu bingkisan✨
 HARGA : Rp. 80.000`,
     group: "hampers",
-    hampersType: "paket-hemat",
+    hampersType: "snack-sembako",
     image: "/images/lily2.png",
   },
   
