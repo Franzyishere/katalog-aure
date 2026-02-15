@@ -88,6 +88,7 @@ export default function Home() {
             { key: "snack-sembako", label: "🧃 Snack & Sembako" },
             { key: "pecah-belah", label: "🏺 Pecah Belah" },
             { key: "paket-hemat", label: "💝 Paket Hemat" },
+            { key: "custom-hampers", label: "🎀 Custom Hampers" },
           ].map((item) => (
             <button
               key={item.key}
