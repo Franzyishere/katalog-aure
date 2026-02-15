@@ -18,6 +18,41 @@ export default function Detail() {
     return <p className="text-center mt-5">Data tidak ditemukan</p>;
   }
 
+  // =====================
+  // PESAN WHATSAPP
+  // =====================
+  const waMessage = encodeURIComponent(
+`*Halo Aure Gifts & Hampers 🌙*
+
+Nama & No. Hp Pemesan :
+
+Alamat :
+
+Saya ingin memesan :
+   *🍪 Produk : ${food.name}*
+   *💰 Harga : Rp ${food.price.toLocaleString()}*
+
+Sebanyak :
+
+*(pilih salah satu untuk opsi pengambilan)*
+
+
+*Bila diambil*
+Tanggal Pengambilan :
+
+*Bila dikirim*
+Nama penerima :
+Alamat penerima :
+
+*Bila COD*
+Tanggal & Lokasi COD :
+_Untuk jam menyesuaikan dari kami_
+
+NB: apabila dilakukan pengiriman, tolong kirimkan share lokasi yang sesuai.
+
+Terimakasih!!!`
+);
+
   return (
     <div className="container detail-page">
 
@@ -53,9 +88,11 @@ export default function Detail() {
             ))}
           </div>
 
+          {/* CTA WHATSAPP */}
           <a
-            href={`https://wa.me/6285604782201`}
+            href={`https://wa.me/6285604782201?text=${waMessage}`}
             target="_blank"
+            rel="noopener noreferrer"
             className="btn-whatsapp"
           >
             <img src="/icons/whatsapp.svg" alt="WA" />
@@ -64,9 +101,7 @@ export default function Detail() {
         </div>
       </div>
 
-      {/* =====================
-          IMAGE MODAL
-      ===================== */}
+      {/* IMAGE MODAL */}
       {showImage && (
         <div className="image-modal" onClick={() => setShowImage(false)}>
           <span className="image-close">✕</span>

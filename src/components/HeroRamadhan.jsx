@@ -29,7 +29,6 @@ export default function HeroRamadhan() {
       {/* ORNAMENT */}
       <div className="lantern lantern-left">🏮</div>
       <div className="lantern lantern-right">🏮</div>
-      <div className="moon">🌙</div>
     </section>
   );
 }

@@ -4,6 +4,7 @@
 
 .ramadhan-hero {
   position: relative;
+  font-family: "Poppins", sans-serif;
   width: 88%;
   margin: 0 auto;
   min-height: 220px; /* ⬅️ dipendekin lagi */
@@ -32,18 +33,21 @@
 
 
 .hero-badge {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   background: rgba(255,255,255,0.35);
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
 .hero-title {
+  font-family: "Playfair Display", serif;
+  margin-top: 5px;
   font-size: 24px; /* ⬅️ lebih ringkas */
-  font-weight: 800;
-  margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .hero-title span {
@@ -51,7 +55,9 @@
 }
 
 .hero-subtitle {
-  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
   opacity: 0.95;
   margin-bottom: 16px;
 }
@@ -63,8 +69,10 @@
   color: white;
   padding: 9px 22px;
   border-radius: 32px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   box-shadow: 0 6px 16px rgba(228, 86, 149, 0.4);
   transition: 0.3s ease;
 }
